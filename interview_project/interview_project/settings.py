@@ -18,7 +18,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR,'templates')
 STATIC_DIR = os.path.join(BASE_DIR,'static')
 CSRF_TRUSTED_ORIGINS= [
     "http://localhost:8000",
-    
+    "https://interviewhub-production.up.railway.app"
 ]
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
