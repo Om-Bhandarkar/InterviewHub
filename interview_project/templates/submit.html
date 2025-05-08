@@ -1,33 +1,46 @@
 {% extends 'base.html' %}
 
-{% block title %}Submit Interview Experience | Student Interview System{% endblock %}
+{% block title %}
+  Submit Interview Experience | Student Interview System
+{% endblock %}
 
 {% block content %}
-<div class="container">
+  <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <div class="card shadow-sm p-4">
-                <h3 class="card-title mb-4 text-center">Submit Interview Experience</h3>
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm p-4">
+          <h3 class="card-title mb-4 text-center">Submit Interview Experience</h3>
 
-                <form method="post" novalidate>
-                    {% csrf_token %}
-                    {% for field in form %}
-                        <div class="mb-3">
-                            <label class="form-label">{{ field.label }}</label>
-                            {{ field }}
-                            {% if field.errors %}
-                                <div class="text-danger small">{{ field.errors }}</div>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {% for field in form %}
+              <div class="mb-3">
+                <label class="form-label">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                  <div class="text-danger small">{{ field.errors }}</div>
+                {% endif %}
+              </div>
+            {% endfor %}
 
-                    <div class="d-flex justify-content-between">
-                        <a href="{% url 'home_page' %}" class="btn btn-secondary">Back</a>
-                        <button type="submit" class="btn btn-success">Submit</button>
-                    </div>
-                </form>
+            <div class="d-flex justify-content-between">
+              <a href="{% url 'home_page' %}" class="btn btn-secondary">Back</a>
+              <button type="submit" class="btn btn-success">Submit</button>
             </div>
+          </form>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+  
+  <script>
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+        const form = document.querySelector('form')
+        if (form) {
+          form.reset()
+        }
+      }
+    })
+  </script>
 {% endblock %}
