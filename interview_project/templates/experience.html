@@ -5,6 +5,22 @@
 {% block content %}
 <h2 class="text-center mb-4">Interview Experiences</h2>
 
+<!-- Search and Filter Form -->
+<form method="get" class="row g-3 mb-4">
+    <div class="col-md-4">
+        {{ form.company }}
+    </div>
+    <div class="col-md-4">
+        {{ form.position }}
+    </div>
+    <div class="col-md-2">
+        {{ form.difficulty }}
+    </div>
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-primary w-100">Search</button>
+    </div>
+</form>
+
 <div class="row justify-content-center">
     {% for exp in experiences %}
         <div class="col-md-8 col-lg-6 mb-4">
