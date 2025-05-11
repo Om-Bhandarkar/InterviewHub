@@ -39,7 +39,6 @@ def submit_experience(request):
         if form.is_valid():
             form.save()
             return redirect('thank_you')
-           
     else:
         form = ExperienceForm()
     return render(request, 'submit.html', {'form': form})
