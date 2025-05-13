@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% load static %}
 
@@ -8,23 +7,27 @@
 
 {% block navbar %}
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'experience' %}">Experiences</a>
+    <a class="nav-link active" href="#">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'experience' %}">Browse Experiences</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Login</a>
   </li>
 {% endblock %}
 
-{% block content %} 
+{% block content %}
   <!-- Banner Image -->
-  
 
-  <div class="text-center">
-    <h1 class="display-4">Welcome to the Student Interview Experience Portal</h1>
-    <p class="lead mt-3">
-      This platform is built to empower students with real interview experiences from their peers.
-    </p>
-  </div>
-  <div class="text-center mb-4">
-    <img src="{% static 'images/banner.jpg' %}" class="img-fluid rounded shadow-sm" alt="Student Collaboration">
-  </div>
+
+  <header class="bg-light py-5 text-center">
+      <div class="container">
+        <h1 class="display-5 fw-bold">Welcome to the Student Interview Experience Portal</h1>
+        <p class="lead">Read real experiences shared by students. Prepare better, contribute yours, and help others.</p>
+        <a href="{% url 'submit_experience' %}" class="btn btn-primary btn-lg">Share Your Experience</a>
+      </div>
+    </header>
   <div class="row mt-4 justify-content-center">
     <div class="col-md-8">
       <div class="card shadow">
@@ -32,27 +35,25 @@
           <h4 class="card-title">Why this project?</h4>
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex align-items-center">
-              <img src="{% static 'images/checkmark.png' %}" alt="check" class="me-2" width="24" height="24">
+              <img src="{% static 'images/checkmark.png' %}" alt="check" class="me-2" width="24" height="24" />
               Share real interview questions and answers
             </li>
             <li class="list-group-item d-flex align-items-center">
-              <img src="{% static 'images/checkmark.png' %}" alt="check" class="me-2" width="24" height="24">
+              <img src="{% static 'images/checkmark.png' %}" alt="check" class="me-2" width="24" height="24" />
               Learn company-specific interview trends
             </li>
             <li class="list-group-item d-flex align-items-center">
-              <img src="{% static 'images/checkmark.png' %}" alt="check" class="me-2" width="24" height="24">
+              <img src="{% static 'images/checkmark.png' %}" alt="check" class="me-2" width="24" height="24" />
               Help future students prepare effectively
             </li>
             <li class="list-group-item d-flex align-items-center">
-              <img src="{% static 'images/checkmark.png' %}" alt="check" class="me-2" width="24" height="24">
+              <img src="{% static 'images/checkmark.png' %}" alt="check" class="me-2" width="24" height="24" />
               Build a supportive student community
             </li>
           </ul>
-          <div class="text-center mt-4">
-            <a href="{% url 'experience' %}" class="btn btn-primary btn-lg">Get Started</a>
-          </div>
+          
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 {% endblock %}

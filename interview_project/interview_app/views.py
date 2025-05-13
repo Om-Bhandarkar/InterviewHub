@@ -3,13 +3,10 @@ from django.shortcuts import render, redirect
 from .models import InterviewExperience
 from .forms import ExperienceForm,ExperienceFilterForm
 from django.contrib import messages
-# def experience(request):
-#     experiences = InterviewExperience.objects.all().order_by('-created_at')
-#     return render(request, 'experience.html', {'experiences': experiences})
 
-# Experience list view with search and filter functionality
+
 def experience(request):
-    # Instantiate the filter form
+    
     form = ExperienceFilterForm(request.GET or None)
     experiences = InterviewExperience.objects.all().order_by('-created_at')
 
@@ -18,7 +15,7 @@ def experience(request):
         position = form.cleaned_data.get('position')
         difficulty = form.cleaned_data.get('difficulty')
 
-        # Apply filters if the fields are provided
+
         if company:
             experiences = experiences.filter(company__icontains=company)
         if position:
