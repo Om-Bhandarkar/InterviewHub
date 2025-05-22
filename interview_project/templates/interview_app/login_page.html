@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Login | InterviewHub
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row login-section">
+      <div class="col-md-6 login-card">
+        <h1 class="mb-4">Login</h1>
+        <form method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Username" required />
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" placeholder="Password" required />
+          </div>
+          <div class="mb-3 text-end">
+            <a href="#" class="text-decoration-none text-secondary">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn login-btn w-100 mb-3">Login</button>
+          <div class="text-center">
+            <span>Don’t have an account?</span>
+            <a href="{% url "register" %}"><button type="button" class="btn signup-btn ms-2">Sign up</button></a>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6 welcome-section d-flex flex-column justify-content-center align-items-center text-center">
+        <h1 class="mb-3">Welcome to</h1>
+        <h2 class="fw-bold">Student Interview Portal</h2>
+        <p class="mt-3">Login to access interview experiences</p>
+        <img src="{% static 'images/login.png' %}" class="img-fluid mt-4" alt="image" style="max-height: 300px;" />
+      </div>
+    </div>
+  </div>
+{% endblock %}

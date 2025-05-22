@@ -27,7 +27,7 @@ def experience(request):
         'form': form,
         'experiences': experiences
     }
-    return render(request, 'experience.html', context)
+    return render(request, 'interview_app/experience.html', context)
 
 
 def submit_experience(request):
@@ -38,12 +38,21 @@ def submit_experience(request):
             return redirect('thank_you')
     else:
         form = ExperienceForm()
-    return render(request, 'submit.html', {'form': form})
+    return render(request, 'interview_app/submit.html', {'form': form})
 
 def home_page(request):
-    return render(request,'home_page.html')
+    return render(request,'interview_app/home_page.html')
 
 
 def thank_you(request):
-    return render(request,'thank_you.html')
+    return render(request,'interview_app/thank_you.html')
+
+def login_page(request):
+    return render(request,'interview_app/login_page.html')
+
+def register_page(request):
+    return render(request,'interview_app/register_page.html')
+
+
+
 
