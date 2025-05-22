@@ -45,23 +45,3 @@
   </div>
 {% endblock %}
 
-<form method="POST">
-  {% csrf_token %}
-  <div class="mb-3">
-    <input type="text" class="form-control" placeholder="Username" name="username" required />
-  </div>
-  <div class="mb-3">
-    <input type="email" class="form-control" placeholder="Email" name="email" required />
-  </div>
-  <div class="mb-3">
-    <input type="password" class="form-control" placeholder="Password" name="password1" required />
-  </div>
-  <div class="mb-3">
-    <input type="password" class="form-control" placeholder="Confirm Password" name="password2" required />
-  </div>
-  <button type="submit" class="btn signup-btn w-100 mb-3">Sign Up</button>
-  <div class="text-center">
-    <span>Already have an account?</span>
-    <a href="{% url 'login' %}"><button type="button" class="btn login-btn ms-2">Login</button></a>
-  </div>
-</form>
