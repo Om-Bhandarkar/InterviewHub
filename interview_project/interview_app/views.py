@@ -23,6 +23,7 @@ def experience(request):
         if difficulty:
             experiences = experiences.filter(difficulty=difficulty)
 
+
     context = {
         'form': form,
         'experiences': experiences
