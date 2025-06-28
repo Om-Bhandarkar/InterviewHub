@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Submit Interview Experience | Student Interview System
+{% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8">
+        <div class="card shadow border-0 rounded-4">
+          <div class="card-body p-5">
+            <h2 class="text-center mb-4 text-primary fw-bold">📝 Share Your Interview Experience</h2>
+            <p class="text-center text-muted mb-5">Help others by sharing your journey. All fields are important to ensure the best value for future applicants.</p>
+
+            <form method="post" novalidate>
+              {% csrf_token %}
+
+              {% for field in form %}
+                <div class="mb-4">
+                  <label class="form-label fw-semibold">{{ field.label }}</label>
+                  {{ field }}
+                  {% if field.errors %}
+                    <div class="form-text text-danger small mt-1">{{ field.errors|striptags }}</div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+
+              <div class="d-flex justify-content-between align-items-center mt-4">
+                <a href="{% url 'home' %}" class="btn btn-outline-secondary px-4">⬅️ Back</a>
+                <button type="submit" class="btn btn-success px-4">🚀 Submit Experience</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+        const form = document.querySelector('form')
+        if (form) {
+          form.reset()
+        }
+      }
+    })
+  </script>
+{% endblock %}
