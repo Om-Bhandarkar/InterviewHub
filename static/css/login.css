@@ -1,0 +1,74 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f0f0;
+}
+
+.login-section {
+    height: 100vh;
+}
+
+.login-card {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.welcome-section {
+    background-color: #a560f1;
+    color: white;
+    border-radius: 0 15px 15px 0;
+    padding: 40px;
+}
+
+.form-control {
+    background-color: #333;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+
+.login-btn {
+    background-color: #a560f1;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(165, 96, 241, 0.5);
+}
+
+.login-btn:hover {
+    background-color: #8b4ad4;
+}
+
+.login-btn:active {
+    transform: scale(0.98);
+}
+
+.signup-btn {
+    background: none;
+    border: 1px solid #555;
+    color: #ccc;
+    transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+    background-color: #333;
+    color: white;
+}
+
+@media (max-width: 768px) {
+
+    .login-card,
+    .welcome-section {
+        border-radius: 15px;
+    }
+}

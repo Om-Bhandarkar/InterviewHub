@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+  Thank You | Student Interview System
+{% endblock %}
+{% block content %}
+  <div class="container min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="card shadow p-4 text-center" style="max-width: 500px;">
+      <h1 class="text-success mb-3"><i class="bi bi-check-circle-fill"></i> Thank You!</h1>
+      <p class="lead">Your experience has been submitted successfully.</p>
+      <a href="{% url 'experience' %}" class="btn btn-primary mt-3">Go to Experience Page</a>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Interview Experiences | Student Interview System
+{% endblock %}
+
+{% block content %}
+  <h2 class="text-center mb-4">Interview Experiences</h2>
+
+  <!-- Search and Filter Form -->
+  <form method="get" class="row g-3 mb-4">
+    <div class="col-md-4">{{ form.company }}</div>
+    <div class="col-md-4">{{ form.position }}</div>
+    <div class="col-md-2">{{ form.difficulty }}</div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary w-100">Search</button>
+    </div>
+  </form>
+
+  <div class="row justify-content-center">
+    {% for exp in experiences %}
+      <div class="col-md-8 col-lg-6 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ exp.company }} - {{ exp.position }}</h5>
+            <p class="card-text">{{ exp.experience }}</p>
+            {% if exp.interview_question %}
+              <p>
+                <strong>Interview Question:</strong> {{ exp.interview_question }}
+              </p>
+            {% endif %}
+            <p class="text-muted small">By {{ exp.name }} | {{ exp.created_at|date:'M d, Y H:i' }}</p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-center">No experiences yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+{% block navbar %}
+  <div class="d-flex">
+    <a href="{% url 'submit_experience' %}" class="btn btn-outline-light">Submit Experience</a>
+  </div>
+{% endblock %}

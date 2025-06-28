@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Welcome | InterviewHub
+{% endblock %}
+
+{% block navbar %}
+  <li class="nav-item">
+    <a class="nav-link active" href="{% url 'home' %}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'experience' %}">Browse Experiences</a>
+  </li>
+
+  {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Welcome, {{ user.email }}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-danger" href="{% url 'logout' %}">Logout</a>
+    </li>
+  {% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'login' %}">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'register' %}">Register</a>
+    </li>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <header class="bg-primary text-white py-5 text-center border-bottom">
+    <div class="container">
+      <h1 class="display-5 fw-bold mb-3">Welcome to InterviewHub</h1>
+      <p class="lead text-white-50 mb-4">Explore, learn, and contribute real interview experiences from students like you.</p>
+      <a href="{% url 'submit_experience' %}" class="btn btn-light btn-lg px-4">🚀 Share Your Experience</a>
+    </div>
+  </header>
+
+  <!-- Project Purpose Section -->
+  <div class="row mt-5 justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg border-0">
+        <div class="card-body">
+          <h4 class="card-title mb-3">Why InterviewHub?</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex align-items-center">
+              <img src="{% static 'images/checkmark.png' %}" alt="check" class="me-2" width="24" height="24" />
+              Share real interview questions and answers
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+              <img src="{% static 'images/checkmark.png' %}" alt="check" class="me-2" width="24" height="24" />
+              Learn company-specific interview trends
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+              <img src="{% static 'images/checkmark.png' %}" alt="check" class="me-2" width="24" height="24" />
+              Help future students prepare effectively
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+              <img src="{% static 'images/checkmark.png' %}" alt="check" class="me-2" width="24" height="24" />
+              Build a supportive student community
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Platform Features Section -->
+  <div class="container my-5">
+    <h2 class="text-center mb-5 fw-bold text-primary">🔧 Platform Features</h2>
+    <div class="row g-4 mb-4">
+      {% for title, desc in data.items %}
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0 hover-shadow bg-white">
+            <div class="card-body">
+              <h5 class="card-title text-primary">{{ title|safe }}</h5>
+              <p class="card-text text-muted">{{ desc|safe }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- Preparation Tips Section -->
+  <div class="bg-primary bg-gradient text-white py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">🎓 Preparation Tips</h2>
+      <ul class="list-group list-group-flush d-flex">
+        <li class="list-group-item bg-transparent border-0 text-white">📚 Learn DSA: Practice consistently on platforms like LeetCode, Codeforces.</li>
+        <li class="list-group-item bg-transparent border-0 text-white">🗣️ Prepare Behavioral Questions: Practice STAR format responses.</li>
+        <li class="list-group-item bg-transparent border-0 text-white">🧑‍💼 Understand the Company: Read job descriptions, explore Glassdoor reviews.</li>
+        <li class="list-group-item bg-transparent border-0 text-white">📝 Write it Down: After every interview, document your experience here!</li>
+      </ul>
+    </div>
+  </div>
+  <!-- How It Works Section -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4 text-primary fw-bold">🛠️ How It Works</h2>
+    <div class="row text-center g-4">
+      <div class="col-md-3">
+        <div class="p-4 bg-light border rounded shadow-sm hover-highlight">
+          <h5 class="text-success fw-bold">Django</h5>
+          <p class="text-muted mb-0">Backend framework</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="p-4 bg-light border rounded shadow-sm hover-highlight">
+          <h5 class="text-info fw-bold">MySQL</h5>
+          <p class="text-muted mb-0">Database</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="p-4 bg-light border rounded shadow-sm hover-highlight">
+          <h5 class="text-warning fw-bold">Bootstrap 5</h5>
+          <p class="text-muted mb-0">UI styling</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="p-4 bg-light border rounded shadow-sm hover-highlight">
+          <h5 class="text-danger fw-bold">OTP Auth</h5>
+          <p class="text-muted mb-0">Secure login system</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .hover-shadow:hover {
+      transform: translateY(-5px);
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+  </style>
+{% endblock %}
